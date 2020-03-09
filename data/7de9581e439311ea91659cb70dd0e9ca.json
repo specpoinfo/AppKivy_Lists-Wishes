@@ -1,0 +1,3 @@
+{"items": [{"label": "Хлеб"},
+{"label": "колбаса", "descriprion": "докторская или типа того"},
+{"label":"сыр", "description": "на бутерброды", "check": true}], "name": "first"}
