@@ -1,0 +1,43 @@
+ScreenManager:
+    Screen:
+        id: main_screen
+        BoxLayout: #
+            MDToolBar:
+                #слева иконка меню, вызывающая навигационную панель
+            BoxLayout:   #банер
+            
+        
+            Screen:
+                id: lists_screen
+
+            Screen:
+                id: friend_list
+
+            Screen:
+                id: Setting
+            
+            
+            MDBottomNavigation:
+                #3 страницы: Список вссех листов, Друзья, Натсройки
+    
+        
+        
+    Screen:
+        id: current_list_screen
+        BoxLayout:
+            MDToolBar:
+                #в этом тулбаре нужна стрелочка назад, которая возвращает на страницу списков
+            BoxLayout:
+                MDList:
+                
+            MDBottomAppBar:
+                MDToolBar:
+                
+                
+    '''<NavBar>:
+        В шапке навбара находится картинка пользователя, почта и прочие данные пользователя (как в примере KivyMD)
+        В меню добавляем следующие ссылки: Создать новый список*, Все списки, Друзья, Настройки, О приложении...
+        
+
+        
+        

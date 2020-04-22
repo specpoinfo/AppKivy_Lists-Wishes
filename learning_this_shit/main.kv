@@ -1,0 +1,122 @@
+
+<MDToolbarMain>:
+    pos_hint: {"top": 1}
+    elevation: 10
+    #title: self.title_title
+     
+
+<ItemDrawer>:
+    theme_text_color: "Custom"
+    screen_name: self.screen_name
+    on_release: 
+        self.parent.set_color_item(self)
+        app.change_screen(self)
+        app.root.ids.nav_drawer.set_state("close")
+
+
+    IconLeftWidget:
+        id: icon
+        icon: root.icon
+        theme_text_color: "Custom"
+        text_color: root.text_color
+        
+            
+            
+        
+<ContentNavigationDrawer>:
+    orientation: "vertical"
+    padding: "8dp"
+    spacing: "8dp"
+    
+    AnchorLayout:
+        anchor_x: "center"
+        size_hint_y: None
+        height: avatar.height
+        
+        Image:
+            id: avatar
+            size_hint: None, None
+            size: "300dp", "200dp"
+            source: "img.jpg"
+
+    MDLabel:
+        text: "Cool menu"
+        font_style: "Button"
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    MDLabel:
+        text: "kivydevelopment@gmail.com"
+        font_style: "Caption"
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    ScrollView:
+
+        DrawerList:
+            id: md_list
+
+#Screen Management here: 
+Screen:
+    NavigationLayout:
+
+        ScreenManager:
+            id: screen_manager
+            Screen:
+                name: "main_screen"
+                id: main_screen
+                BoxLayout:
+                    orientation: "vertical"
+                    
+                    MDToolbarMain:
+                        id: main_screen_toolbar
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+                    Button:
+                        text:"Hey!"
+                        on_release: app.change_lang_other()
+            Screen:
+                name: "friend_screen"
+                id: friend_screen
+                BoxLayout:
+                    orientation:"vertical"
+                    MDToolbarMain:
+                        id: friend_screen_toolbar
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                    MDLabel:
+                        text: "This is friend screen!"
+
+            Screen:
+                name: "setting_screen"
+                id: setting_screen
+                BoxLayout:
+                    orientation:"vertical"
+                    MDToolbarMain:
+                        id: setting_screen_toolbar
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                    MDLabel:
+                        text: "This is setting screen!"
+            
+            Screen:
+                name: "create_new_list"
+                id: create_new_list
+                BoxLayout:
+                    orientation:"vertical"
+                    MDToolbarMain:
+                        id: create_new_list_toolbar
+                        left_action_items: [["arrow-left", lambda x: app.change_screen_on("main_screen")]]
+                    MDLabel:
+                        text: "This is CreateNewListScreen"
+        
+        
+        MDNavigationDrawer:
+            id: nav_drawer
+
+
+            ContentNavigationDrawer:
+                id: content_drawer
+
+
+        
+
+        
